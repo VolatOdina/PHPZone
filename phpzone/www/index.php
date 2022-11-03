@@ -1,12 +1,20 @@
 <?php
 
-require __DIR__.'/../src/myProject/Models/Users/Users.php';
-require __DIR__.'/../src/myProject/Models/Articles/Articles.php';
+function myAutoLoader(string $className)
+{
+  var_dump($className);  
+  require_once __DIR__ . '/../src/' . str_replace('\\', '/', $className) . '.php';
+}
 
-$author = new \myProject\Models\Articles\User('Bob');
-$art = new myProject\Models\Articles\Article('zagotovka', 'text', $author);
+spl_autoload_register('myAutoLoader');
+
+
+$author = new \myProject\Models\Users\Users('Bob');
+$art = new \myProject\Models\Articles\Articles('zagotovka', 'text', $author);
 
 echo '<pre>';
   var_dump($art);
   echo '</pre>';
 
+$cont = new \myProject\Controllers\MainController();
+$cont -> main();

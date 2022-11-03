@@ -2,13 +2,15 @@
 
 namespace myProject\Models\Articles;
 
-class Article
+use MyProject\Models\Users\Users;
+
+class Articles
 {
     private $title;
     private $text;
     private $author;
 
-public function __construct(string $tatle, string $text, User $author)
+public function __construct(string $tatle, string $text, Users $author)
 {
     $this->title = $tatle;
     $this->text = $text;
@@ -25,7 +27,7 @@ public function getText():string
     return $this-> text;
 }
 
-public function getAuthor(): User
+public function getAuthor(): Users
 {
     return $this-> author;
 }

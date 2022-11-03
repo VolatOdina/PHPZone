@@ -1,8 +1,8 @@
 <?php
 
-namespace myProject\Models\Articles;
+namespace myProject\Models\Users;
 
-class User
+class Users
 {
     private $name;
 
