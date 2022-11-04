@@ -17,4 +17,13 @@ echo '<pre>';
   echo '</pre>';
 
 $cont = new \myProject\Controllers\MainController();
-$cont -> main();
+
+if (!empty($_GET['name']))
+{
+  $cont->sayhello($_GET['name']);
+}
+ else{
+  $cont->main();
+ }
+
+ var_dump($_GET['route']);
